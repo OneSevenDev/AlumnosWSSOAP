@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.oneseven.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.oneseven.com" xmlns:intf="http://ws.oneseven.com" xmlns:tns1="http://entities.oneseven.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.oneseven.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://entities.oneseven.com"/>
+   <element name="searchStudent">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchStudentResponse">
+    <complexType>
+     <sequence>
+      <element name="searchStudentReturn" type="tns1:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginStudent">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="pass" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginStudentResponse">
+    <complexType>
+     <sequence>
+      <element name="loginStudentReturn" type="tns1:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://entities.oneseven.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Student">
+    <sequence>
+     <element name="activo" type="xsd:boolean"/>
+     <element name="apellidos" nillable="true" type="xsd:string"/>
+     <element name="edad" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nombres" nillable="true" type="xsd:string"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="usuario" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="loginStudentResponse">
+
+      <wsdl:part element="impl:loginStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchStudentResponse">
+
+      <wsdl:part element="impl:searchStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginStudentRequest">
+
+      <wsdl:part element="impl:loginStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchStudentRequest">
+
+      <wsdl:part element="impl:searchStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="wsalumnos">
+
+      <wsdl:operation name="searchStudent">
+
+         <wsdl:input message="impl:searchStudentRequest" name="searchStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchStudentResponse" name="searchStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginStudent">
+
+         <wsdl:input message="impl:loginStudentRequest" name="loginStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginStudentResponse" name="loginStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="wsalumnosSoapBinding" type="impl:wsalumnos">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="searchStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="wsalumnosService">
+
+      <wsdl:port binding="impl:wsalumnosSoapBinding" name="wsalumnos">
+
+         <wsdlsoap:address location="http://localhost:8080/wsAlumnos/services/wsalumnos"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
