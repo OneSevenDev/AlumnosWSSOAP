@@ -23,22 +23,18 @@
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="wsalumnos" provider="java:RPC" style="wrapped" use="literal">
-  <ns3:operation name="searchStudent" qname="ns1:searchStudent" returnQName="ns1:searchStudentReturn" returnType="ns2:Student" soapAction="" xmlns:ns1="http://ws.oneseven.com" xmlns:ns2="http://entities.oneseven.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+  <ns3:operation name="searchStudent" qname="ns1:searchStudent" returnQName="ns1:searchStudentReturn" returnType="ns2:Student" soapAction="" xmlns:ns1="http://ws.oneseven.com" xmlns:ns2="http://entiteslayer.oneseven.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
    <ns3:parameter qname="ns1:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns3:operation>
-  <ns1:operation name="loginStudent" qname="ns3:loginStudent" returnQName="ns3:loginStudentReturn" returnType="ns4:Student" soapAction="" xmlns:ns3="http://ws.oneseven.com" xmlns:ns4="http://entities.oneseven.com">
-   <ns1:parameter qname="ns3:user" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns3:pass" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="loginStudent searchStudent"/>
+  <ns1:parameter name="allowedMethods" value="searchStudent"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="wsalumnos"/>
   <ns1:parameter name="className" value="com.oneseven.ws.wsalumnos"/>
   <ns1:parameter name="wsdlServicePort" value="wsalumnos"/>
-  <ns1:parameter name="schemaQualified" value="http://ws.oneseven.com,http://entities.oneseven.com"/>
+  <ns1:parameter name="schemaQualified" value="http://entiteslayer.oneseven.com,http://ws.oneseven.com"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ws.oneseven.com"/>
   <ns1:parameter name="wsdlServiceElement" value="wsalumnosService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.oneseven.entities.Student" xmlns:ns5="http://entities.oneseven.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.oneseven.entiteslayer.Student" xmlns:ns3="http://entiteslayer.oneseven.com"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>

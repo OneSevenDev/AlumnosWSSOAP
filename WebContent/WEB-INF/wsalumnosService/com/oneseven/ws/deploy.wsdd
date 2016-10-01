@@ -5,20 +5,16 @@
   <service name="wsalumnos" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://ws.oneseven.com"/>
       <parameter name="wsdlServiceElement" value="wsalumnosService"/>
-      <parameter name="schemaQualified" value="http://ws.oneseven.com,http://entities.oneseven.com"/>
+      <parameter name="schemaQualified" value="http://entiteslayer.oneseven.com,http://ws.oneseven.com"/>
       <parameter name="wsdlServicePort" value="wsalumnos"/>
       <parameter name="className" value="com.oneseven.ws.wsalumnos"/>
       <parameter name="wsdlPortType" value="wsalumnos"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://ws.oneseven.com" xmlns:retNS="http://ws.oneseven.com" xmlns:rtns="http://entities.oneseven.com" name="searchStudent" qname="operNS:searchStudent" returnQName="retNS:searchStudentReturn" returnType="rtns:Student" soapAction="">
+      <operation xmlns:operNS="http://ws.oneseven.com" xmlns:retNS="http://ws.oneseven.com" xmlns:rtns="http://entiteslayer.oneseven.com" name="searchStudent" qname="operNS:searchStudent" returnQName="retNS:searchStudentReturn" returnType="rtns:Student" soapAction="">
         <parameter xmlns:pns="http://ws.oneseven.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
       </operation>
-      <operation xmlns:operNS="http://ws.oneseven.com" xmlns:retNS="http://ws.oneseven.com" xmlns:rtns="http://entities.oneseven.com" name="loginStudent" qname="operNS:loginStudent" returnQName="retNS:loginStudentReturn" returnType="rtns:Student" soapAction="">
-        <parameter xmlns:pns="http://ws.oneseven.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
-        <parameter xmlns:pns="http://ws.oneseven.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pass" type="tns:string"/>
-      </operation>
-      <parameter name="allowedMethods" value="loginStudent searchStudent"/>
+      <parameter name="allowedMethods" value="searchStudent"/>
 
-      <typeMapping xmlns:ns="http://entities.oneseven.com" qname="ns:Student" type="java:com.oneseven.entities.Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://entiteslayer.oneseven.com" qname="ns:Student" type="java:com.oneseven.entiteslayer.Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

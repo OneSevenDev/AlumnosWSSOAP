@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://ws.oneseven.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.oneseven.com" xmlns:intf="http://ws.oneseven.com" xmlns:tns1="http://entities.oneseven.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://ws.oneseven.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.oneseven.com" xmlns:intf="http://ws.oneseven.com" xmlns:tns1="http://entiteslayer.oneseven.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://ws.oneseven.com" xmlns="http://www.w3.org/2001/XMLSchema">
-   <import namespace="http://entities.oneseven.com"/>
+   <import namespace="http://entiteslayer.oneseven.com"/>
    <element name="searchStudent">
     <complexType>
      <sequence>
@@ -19,23 +19,8 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="loginStudent">
-    <complexType>
-     <sequence>
-      <element name="user" type="xsd:string"/>
-      <element name="pass" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="loginStudentResponse">
-    <complexType>
-     <sequence>
-      <element name="loginStudentReturn" type="tns1:Student"/>
-     </sequence>
-    </complexType>
-   </element>
   </schema>
-  <schema elementFormDefault="qualified" targetNamespace="http://entities.oneseven.com" xmlns="http://www.w3.org/2001/XMLSchema">
+  <schema elementFormDefault="qualified" targetNamespace="http://entiteslayer.oneseven.com" xmlns="http://www.w3.org/2001/XMLSchema">
    <complexType name="Student">
     <sequence>
      <element name="activo" type="xsd:boolean"/>
@@ -50,25 +35,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="loginStudentResponse">
-
-      <wsdl:part element="impl:loginStudentResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="searchStudentResponse">
 
       <wsdl:part element="impl:searchStudentResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="loginStudentRequest">
-
-      <wsdl:part element="impl:loginStudent" name="parameters">
 
       </wsdl:part>
 
@@ -96,18 +65,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="loginStudent">
-
-         <wsdl:input message="impl:loginStudentRequest" name="loginStudentRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:loginStudentResponse" name="loginStudentResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
    </wsdl:portType>
 
    <wsdl:binding name="wsalumnosSoapBinding" type="impl:wsalumnos">
@@ -125,24 +82,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="searchStudentResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="loginStudent">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="loginStudentRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="loginStudentResponse">
 
             <wsdlsoap:body use="literal"/>
 
